@@ -13,7 +13,7 @@
 </script>
 
 <header class="page-header bg-gray-700 text-white p-4 pb-8">
-  <div class="max-w-4xl">
+  <div class="max-w-4xl mx-auto">
     <section id="top" class="animate-up flex justify-between items-center border-b border-b-gray-600 pb-8">
       <h2 class="sr-only">Homepage</h2>
       <img id="logo" src="/images/logo.svg" alt="Logo" />
