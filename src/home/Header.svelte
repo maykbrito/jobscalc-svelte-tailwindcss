@@ -1,4 +1,6 @@
 <script>
+  import { app } from '../store'
+
   let freeHours = 1
   let profile = {
     name: 'Mayk Brito',
@@ -10,9 +12,13 @@
     progress: 1,
     done: 1,
   }
+
+  function handlePage() {
+    $app.page = 'profile'
+  }
 </script>
 
-<header class="page-header bg-gray-700 text-white p-4 pb-8">
+<header class="page-header bg-gray-700 text-white p-8">
   <div class="max-w-4xl mx-auto">
     <section id="top" class="animate-up flex justify-between items-center border-b border-b-gray-600 pb-8">
       <h2 class="sr-only">Homepage</h2>
@@ -27,6 +33,7 @@
         {/if}
       </span>
       <button
+        on:click={handlePage}
         id="avatar-profile" 
         class="flex items-center gap-4 hover:text-orange-400 transition">
         <div class="grid text-end">
