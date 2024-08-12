@@ -7,5 +7,6 @@ const createApp = (data) => {
 }
 
 export const app = createApp({
-  page: "profile"
+  page: "home",
+  currentProject: {}
 })
