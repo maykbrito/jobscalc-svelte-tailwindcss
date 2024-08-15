@@ -1,9 +1,5 @@
 <script>
-  let job = {
-    name: "Youtube Video",
-    dailyHours: 2,
-    totalHours: 4,
-  };
+  import { app } from "../store";
 </script>
 
 <main>
@@ -21,7 +17,7 @@
         type="text"
         id="name"
         name="name"
-        value={job.name}
+        value={$app.currentProject.name}
       />
     </div>
 
@@ -36,7 +32,7 @@
           step="0.5"
           id="daily-hours"
           name="daily-hours"
-          value={job.dailyHours}
+          bind:value={$app.currentProject.dailyHours}
         />
       </div>
 
@@ -49,7 +45,7 @@
           type="number"
           id="total-hours"
           name="total-hours"
-          value={job.totalHours}
+          bind:value={$app.currentProject.totalHours}
         />
       </div>
     </div>

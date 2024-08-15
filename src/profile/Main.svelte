@@ -1,32 +1,27 @@
 <script>
+  import { app } from "../store";
+  import { Calculate } from "../scripts/calculate";
   import Aside from "../parts/Aside.svelte";
-  let profile = {
-    name: "Mayk Brito",
-    avatar: "https://github.com/maykbrito.png",
-    valueHour: Number(50).toLocaleString("pt-br", {
-      currency: "BRL",
-      style: "currency",
-    }),
-    monthlyIncome: 50000,
-    hoursPerDay: 16,
-    daysAWeek: 6,
-    vacationWeeks: 4,
-  };
+  import { debouncedAutosave } from "../scripts/utils";
+
+  $: formattedValueHour = new Calculate($app).formattedValueHour;
+
+  $: debouncedAutosave($app);
 </script>
 
 <div class="container animate-up delay-2 flex justify-between p-12 min-w-full">
   <Aside>
     <img
       class="border-orange-400 rounded-full border-4"
-      src={profile.avatar}
-      alt={profile.name}
+      src={$app.user.avatar}
+      alt={$app.user.name}
     />
     <h2 class="text-2xl font-medium text-gray-600 text-center mt-4">
-      {profile.name}
+      {$app.user.name}
     </h2>
     <p class="text-center mt-4 text-gray-600">
       O valor da sua hora é <br />
-      <strong class="text-xl">{profile.valueHour}</strong>
+      <strong class="text-xl">{formattedValueHour}</strong>
     </p>
   </Aside>
 
@@ -43,7 +38,7 @@
           type="text"
           id="name"
           name="name"
-          value={profile.name}
+          bind:value={$app.user.name}
         />
       </div>
 
@@ -57,7 +52,7 @@
           type="url"
           id="avatar"
           name="avatar"
-          value={profile.avatar}
+          bind:value={$app.user.avatar}
         />
       </div>
     </div>
@@ -78,7 +73,7 @@
           id="monthly-budget"
           name="monthly-budget"
           placeholder="R$"
-          value={profile.monthlyIncome}
+          bind:value={$app.planning.monthlyIncome}
         />
       </div>
 
@@ -92,7 +87,7 @@
           type="number"
           id="hours-per-day"
           name="hours-per-day"
-          value={profile.hoursPerDay}
+          bind:value={$app.planning.hoursPerDay}
         />
       </div>
     </div>
@@ -107,7 +102,7 @@
           type="number"
           id="days-per-week"
           name="days-per-week"
-          value={profile.daysAWeek}
+          bind:value={$app.planning.daysAWeek}
         />
       </div>
 
@@ -121,7 +116,7 @@
           type="number"
           id="vacation-per-year"
           name="vacation-per-year"
-          value={profile.vacationWeeks}
+          bind:value={$app.planning.vacationWeeks}
         />
       </div>
     </div>

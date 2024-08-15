@@ -1,14 +1,14 @@
 <script>
+  import { app } from "../store";
+  import { Calculate } from "../scripts/calculate";
   import Aside from "../parts/Aside.svelte";
   import Header from "../parts/Header.svelte";
   import Main from "./Main.svelte";
+  import { debouncedAutosave } from "../scripts/utils";
 
-  let job = {
-    budget: Number(2000).toLocaleString("pt-br", {
-      style: "currency",
-      currency: "BRL",
-    }),
-  };
+  $: projectValue = new Calculate($app).formattedProjectValue;
+
+  $: debouncedAutosave($app);
 </script>
 
 <div class="bg-gray-100 min-h-screen">
@@ -26,7 +26,7 @@
           alt="Imagem de Dinheiro"
         />
         <p class="mt-8 text-gray-600">
-          O valor do projeto ficou em <strong>{job.budget} </strong>
+          O valor do projeto ficou em <strong>{projectValue} </strong>
         </p>
       </Aside>
     </div>

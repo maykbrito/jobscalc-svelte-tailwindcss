@@ -1,23 +1,19 @@
 <script>
+  import { Calculate } from "../scripts/calculate";
+  import { Project } from "../scripts/project";
   import { app } from "../store";
 
-  let freeHours = 1;
-  let profile = {
-    name: "Mayk Brito",
-    avatar: "https://github.com/maykbrito.png",
-  };
+  $: freeHours = new Calculate($app).freeHours;
 
-  let statusCount = {
-    total: 2,
-    progress: 1,
-    done: 1,
-  };
+  $: statusCount = new Calculate($app).projectsStatus;
 
   function goToProfile() {
     $app.page = "profile";
   }
 
   function goToProject() {
+    $app.currentProject = new Project();
+    $app.projects = [...$app.projects, $app.currentProject];
     $app.page = "project";
   }
 </script>
@@ -45,7 +41,7 @@
         class="flex items-center gap-4 hover:text-orange-400 transition"
       >
         <div class="grid text-end">
-          <strong>{profile.name}</strong>
+          <strong>{$app.user.name}</strong>
           <span
             class="text-xs
           +">Ver perfil</span
@@ -53,8 +49,8 @@
         </div>
         <img
           class="w-14 border-2 border-orange-400 rounded-full"
-          src={profile.avatar}
-          alt={profile.name}
+          src={$app.user.avatar}
+          alt={$app.user.name}
         />
       </button>
     </section>
