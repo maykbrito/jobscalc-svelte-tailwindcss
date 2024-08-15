@@ -25,9 +25,9 @@
       class="animate-up flex justify-between items-center border-b border-b-gray-600 pb-8"
     >
       <h2 class="sr-only">Homepage</h2>
-      <img id="logo" src="/images/logo.svg" alt="Logo" />
+      <img id="logo" src="./images/logo.svg" alt="Logo" />
       <span id="notification" class="flex gap-2">
-        <img src="/images/alert-octagon.svg" alt="Alerta" />
+        <img src="./images/alert-octagon.svg" alt="Alerta" />
         {#if freeHours <= 0}
           Você não tem horas livres
         {:else}
@@ -80,7 +80,7 @@
         class="button orange uppercase flex gap-4 bg-orange-400 h-fit px-3 py-2 rounded items-center hover:brightness-110 transition-all"
       >
         <span class="bg-opacity-10 bg-white rounded p-0.5">
-          <img src="/images/plus-24.svg" alt="Novo Job" />
+          <img src="./images/plus-24.svg" alt="Novo Job" />
         </span>
         <p class="px-2 text-xs font-bold">Novo projeto</p>
       </button>

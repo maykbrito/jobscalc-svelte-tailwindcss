@@ -79,14 +79,14 @@
       class="border border-gray-200 p-2 rounded hover:bg-gray-100 transition-all"
       title="Editar Job"
     >
-      <img class="w-5" src="/images/edit-24.svg" alt="Editar Job" />
+      <img class="w-5" src="./images/edit-24.svg" alt="Editar Job" />
     </button>
     <button
       on:click={handleDelete}
       class="border border-gray-200 p-2 rounded hover:bg-red-100 transition-all"
       title="Excluir Job"
     >
-      <img class="w-5" src="/images/trash-24.svg" alt="Excluir Job" />
+      <img class="w-5" src="./images/trash-24.svg" alt="Excluir Job" />
     </button>
   </div>
 </div>

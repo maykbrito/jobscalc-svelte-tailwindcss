@@ -22,7 +22,7 @@
       <Aside>
         <img
           class="mx-auto"
-          src="/images/money-color.svg"
+          src="./images/money-color.svg"
           alt="Imagem de Dinheiro"
         />
         <p class="mt-8 text-gray-600">
