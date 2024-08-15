@@ -4,8 +4,9 @@
   import { app } from "../store";
 
   export let project;
+  $app.currentProject = project;
 
-  $: projectValue = new Calculate($app).formattedProjectValue;
+  let projectValue = new Calculate($app).formattedProjectValue;
 
   function goToProject() {
     const currentProject = $app.projects.find((p) => p.id == project.id);
