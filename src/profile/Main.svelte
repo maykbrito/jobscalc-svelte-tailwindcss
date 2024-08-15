@@ -9,7 +9,9 @@
   $: debouncedAutosave($app);
 </script>
 
-<div class="container animate-up delay-2 flex justify-between p-12 min-w-full">
+<div
+  class="container animate-up delay-2 flex justify-between p-12 max-w-4xl mx-auto"
+>
   <Aside>
     <img
       class="border-orange-400 rounded-full border-4"
