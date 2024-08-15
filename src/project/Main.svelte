@@ -17,7 +17,7 @@
         type="text"
         id="name"
         name="name"
-        value={$app.currentProject.name}
+        bind:value={$app.currentProject.name}
       />
     </div>
 
